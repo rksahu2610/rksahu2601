@@ -1,8 +1,13 @@
+import dynamic from "next/dynamic";
+// import Cloud from "~/components/Cloud";
+import { ResumeCard } from "~/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
+import { Badge } from "~/components/ui/badge";
 import BlurFade from "~/components/ui/blur-fade";
 import BlurFadeText from "~/components/ui/blur-fade-text";
 import { DATA } from "~/constants/profile-data";
 
+const  Cloud = dynamic(() => import("~/components/Cloud"), { ssr: true })
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Home() {
@@ -33,31 +38,83 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section id="about">
+      {/* <section id="about">
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
           <h2 className="text-xl font-bold">About</h2>
         </BlurFade>
-      </section>
-      <section id="work">
-        <BlurFade delay={BLUR_FADE_DELAY * 3}>
-          <h2 className="text-xl font-bold">Work Experience</h2>
+        <BlurFade delay={BLUR_FADE_DELAY * 4}>
+          <Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
+            {DATA.summary}
+          </Markdown>
         </BlurFade>
+      </section> */}
+      <section id="work">
+        <div className="flex min-h-0 flex-col gap-y-3">
+          <BlurFade delay={BLUR_FADE_DELAY * 5}>
+            <h2 className="text-xl font-bold">Work Experience</h2>
+          </BlurFade>
+          {DATA.work.map((work, id) => (
+            <BlurFade key={work.company} delay={BLUR_FADE_DELAY * 6 + id * 0.05}>
+              <ResumeCard
+                key={work.company}
+                logoUrl={work.logoUrl}
+                altText={work.company}
+                title={work.company}
+                subtitle={work.title}
+                href={work.href}
+                badges={work.badges}
+                period={`${work.start} - ${work.end ?? "Present"}`}
+                description={work.description}
+              />
+          </BlurFade>
+          ))}
+        </div>
       </section>
       <section id="education">
-        <BlurFade delay={BLUR_FADE_DELAY * 3}>
-          <h2 className="text-xl font-bold">Education</h2>
-        </BlurFade>
+        <div className="flex min-h-0 flex-col gap-y-3">
+          <BlurFade delay={BLUR_FADE_DELAY * 7}>
+            <h2 className="text-xl font-bold">Education</h2>
+          </BlurFade>
+          {DATA.education.map((education, id) => (
+            <BlurFade
+              key={education.school}
+              delay={BLUR_FADE_DELAY * 8 + id * 0.05}
+            >
+              <ResumeCard
+                key={education.school}
+                href={education.href}
+                logoUrl={education.logoUrl}
+                altText={education.school}
+                title={education.school}
+                subtitle={education.degree}
+                period={`${education.start} - ${education.end}`}
+              />
+            </BlurFade>
+          ))}
+        </div>
       </section>
       <section id="skills">
-        <BlurFade delay={BLUR_FADE_DELAY * 3}>
-          <h2 className="text-xl font-bold">Skills</h2>
-        </BlurFade>
+        <div className="flex min-h-0 flex-col gap-y-3">
+          <BlurFade delay={BLUR_FADE_DELAY * 9}>
+            <h2 className="text-xl font-bold">Skills</h2>
+          </BlurFade>
+          <div className="flex flex-wrap gap-1">
+            {DATA.skills.map((skill, id) => (
+              <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
+                <Badge key={skill} className="cursor-pointer">{skill}</Badge>
+              </BlurFade>
+            ))}
+          </div>
+          <BlurFade delay={BLUR_FADE_DELAY * 12}>
+            <Cloud />
+          </BlurFade>
+        </div>
       </section>
-      <section id="projects">
+      {/* <section id="projects">
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
           <h2 className="text-xl font-bold">Projects</h2>
         </BlurFade>
-      </section>
+      </section> */}
     </main>
   );
 }
