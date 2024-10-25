@@ -4,14 +4,14 @@ import { HomeIcon, NotebookIcon } from "lucide-react";
 export const DATA = {
   name: "Rahul Kumar",
   initials: "RK",
-  url: "https://dillion.io",
+  url: "https://rksahu2601.vercel.app",
   location: "Jharkhand, IN",
-  locationLink: "https://www.google.com/maps/place/sanfrancisco",
+  locationLink: "https://www.google.com/maps/place/bokarosteelcity",
   description:
     "I'm a passionate Software Development Engineer (SDE) with expertise in frontend development, specializing in Reactjs and Nextjs.",
   summary:
     "I am a passionate Software Development Engineer (SDE) with expertise in frontend development, specializing in HTML5, CSS3, JavaScript, React.js, Next.js, and TypeScript. I focus on creating dynamic and user-friendly interfaces and have hands-on experience integrating RESTful APIs. With strong problem-solving skills, I thrive in collaborative environments and am committed to delivering high-quality, innovative software solutions while staying updated with industry trends.",
-  avatarUrl: "/me.png",
+  avatarUrl: "",
   skills: [
     "Reactjs",
     "Nextjs",
@@ -99,5 +99,57 @@ export const DATA = {
       end: "07/2021",
     },
   ],
-  projects: [],
+  projects: [
+    {
+      title: "Ecommerce",
+      href: "https://devmobilechas.in",
+      dates: "Jan 2024 - Present",
+      active: true,
+      description: "The project involved creating a robust e-commerce platform designed to facilitate online shopping for consumers. The platform offers a user-friendly interface, diverse product categories, and secure payment options, aiming to provide a seamless shopping experience akin to leading online retailers like Flipkart, Amazon, and Walmart.",
+      technologies: [
+        "Next.js",
+        "Typescript",
+        "PostgreSQL",
+        "Prisma",
+        "TailwindCSS"
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://devmobilechas.in",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/devmobilechas.png",
+      video: "",
+    },
+    {
+      title: "Ecommerce App",
+      href: "https://store-rahul.vercel.app/",
+      dates: "Jan 2024 - Present",
+      active: true,
+      description: "I Developed Just Demo Purpose.",
+      technologies: [
+        "Next.js",
+        "Typescript",
+        "PostgreSQL",
+        "Prisma",
+        "TailwindCSS"
+      ],
+      links: [
+        {
+          type: "Store",
+          href: "https://store-rahul.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Admin",
+          href: "https://admin-rahul.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/store.png",
+      video: "",
+    },
+  ],
 } as const;

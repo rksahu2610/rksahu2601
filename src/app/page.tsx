@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import { ProjectCard } from "~/components/project-card";
 // import Cloud from "~/components/Cloud";
 import { ResumeCard } from "~/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
@@ -110,11 +111,33 @@ export default function Home() {
           </BlurFade>
         </div>
       </section>
-      {/* <section id="projects">
-        <BlurFade delay={BLUR_FADE_DELAY * 3}>
+      <section id="projects">
+      <div className="space-y-12 w-full py-12">
+        <BlurFade delay={BLUR_FADE_DELAY * 11}>
           <h2 className="text-xl font-bold">Projects</h2>
         </BlurFade>
-      </section> */}
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
+            {DATA.projects.map((project, id) => (
+              <BlurFade
+                key={project.title}
+                delay={BLUR_FADE_DELAY * 12 + id * 0.05}
+              >
+                <ProjectCard
+                  href={project.href}
+                  key={project.title}
+                  title={project.title}
+                  description={project.description}
+                  dates={project.dates}
+                  tags={project.technologies}
+                  image={project.image}
+                  video={project.video}
+                  links={project.links}
+                />
+              </BlurFade>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
