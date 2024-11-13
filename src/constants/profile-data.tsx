@@ -34,12 +34,12 @@ export const DATA = {
     { href: "/", icon: HomeIcon, label: "Home" }
   ],
   contact: {
-    email: "hello@example.com",
-    tel: "+123456789",
+    email: "rksahu2601@gmail.com",
+    tel: "+91 9334816062",
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https://github.com/rahul8864",
+        url: "https://github.com/rksahu2601",
         icon: Icons.github,
 
         navbar: true,
