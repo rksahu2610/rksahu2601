@@ -10,7 +10,9 @@ import { Loader2 } from "lucide-react";
 const Navbar = dynamic(() => import("~/components/navbar"))
 const Particles = dynamic(() => import("~/components/particles").then((mod) => mod.Particles))
 
-const roboto = Roboto({})
+const roboto = Roboto({
+  subsets: ['latin']
+})
 
 export const metadata: Metadata = {
   title: "Rahul Kumar Sahu",
