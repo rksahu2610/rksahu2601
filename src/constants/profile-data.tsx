@@ -39,14 +39,14 @@ export const DATA = {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https://github.com/rksahu2601",
+        url: "https://github.com/rksahu2610",
         icon: Icons.github,
 
         navbar: true,
       },
       LinkedIn: {
         name: "LinkedIn",
-        url: "https://www.linkedin.com/in/rahul-sahu26/",
+        url: "https://www.linkedin.com/in/rksahu2610",
         icon: Icons.linkedin,
 
         navbar: true,
